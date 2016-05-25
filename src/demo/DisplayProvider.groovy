@@ -61,15 +61,25 @@ class DisplayProvider {
             }
         }
         else if(direction.equals('u')){
-            for(int i = 0; i < 4; i++){
-                for(int j = 0; j < 3; j++){
-                    if(grid[j][i] == 0){
-                        grid[j][i] = grid[j][i+1]
-                        grid[j][i+1] = 0
+            // probably need to rewrite in the form of
+            // collapse empty cells
+            // collapse duplicate cells
+            // start from the top left corner
+            for(int j = 0; j < 4; j++){
+                // go down a row each time
+                for(int i = 0; i < 3; i++){
+                    //if the current cell is empty
+                    if(grid[i][j] == 0){
+                        // the current cell equals the contents of the next cell
+                        grid[i][j] = grid[i+1][j]
+                        // the next cell equals zero
+                        grid[i+1][j] = 0
                     }
-                    if(grid[j][i] == grid[j][i+1]){
-                        grid[j][i] ++
-                        grid[j][i+1] = 0
+                    // if this cell equals the next vell
+                    if(grid[i][j] == grid[i+1][j]){
+                        // increment this cell
+                        grid[i][j] ++
+                        grid[i+1][j] = 0
                     }
                 }
             }
@@ -88,6 +98,7 @@ class DisplayProvider {
                 }
             }
         }
+        addRandomNumber();
     }
     
     // I am either structuring this very poorly

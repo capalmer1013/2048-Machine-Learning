@@ -14,7 +14,7 @@ public class DisplayDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.display.addRandomNumber();
-
+        this.updateGrid();
         //Step 2: Call the method in the Groovy class:
         //String text = display.getText().toString();
         //Step 3: Do something with the result:
@@ -22,25 +22,7 @@ public class DisplayDialog extends javax.swing.JDialog {
         // This is the worst thing ever
         // putting them in an array and interating wasnt working though
         // may have fixed it but yolo
-        this.arr11.setText(String.valueOf(this.display.getGridInt(1, 1)));
-        this.arr12.setText(String.valueOf(this.display.getGridInt(1, 2)));
-        this.arr13.setText(String.valueOf(this.display.getGridInt(1, 3)));
-        this.arr14.setText(String.valueOf(this.display.getGridInt(1, 4)));
         
-        this.arr21.setText(String.valueOf(this.display.getGridInt(2, 1)));
-        this.arr22.setText(String.valueOf(this.display.getGridInt(2, 2)));
-        this.arr23.setText(String.valueOf(this.display.getGridInt(2, 3)));
-        this.arr24.setText(String.valueOf(this.display.getGridInt(2, 4)));
-        
-        this.arr31.setText(String.valueOf(this.display.getGridInt(3, 1)));
-        this.arr32.setText(String.valueOf(this.display.getGridInt(3, 2)));
-        this.arr33.setText(String.valueOf(this.display.getGridInt(3, 3)));
-        this.arr34.setText(String.valueOf(this.display.getGridInt(3, 4)));
-        
-        this.arr41.setText(String.valueOf(this.display.getGridInt(4, 1)));
-        this.arr42.setText(String.valueOf(this.display.getGridInt(4, 2)));
-        this.arr43.setText(String.valueOf(this.display.getGridInt(4, 3)));
-        this.arr44.setText(String.valueOf(this.display.getGridInt(4, 4)));
         //displayerField.setText(text);
         
     }
@@ -224,12 +206,36 @@ public class DisplayDialog extends javax.swing.JDialog {
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
         // TODO add your handling code here:
+        display.move("u");
+        updateGrid();
     }//GEN-LAST:event_upButtonActionPerformed
 
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);
         dispose();
+    }
+    
+    private void updateGrid(){
+        this.arr11.setText(String.valueOf(this.display.getGridInt(1, 1)));
+        this.arr12.setText(String.valueOf(this.display.getGridInt(1, 2)));
+        this.arr13.setText(String.valueOf(this.display.getGridInt(1, 3)));
+        this.arr14.setText(String.valueOf(this.display.getGridInt(1, 4)));
+        
+        this.arr21.setText(String.valueOf(this.display.getGridInt(2, 1)));
+        this.arr22.setText(String.valueOf(this.display.getGridInt(2, 2)));
+        this.arr23.setText(String.valueOf(this.display.getGridInt(2, 3)));
+        this.arr24.setText(String.valueOf(this.display.getGridInt(2, 4)));
+        
+        this.arr31.setText(String.valueOf(this.display.getGridInt(3, 1)));
+        this.arr32.setText(String.valueOf(this.display.getGridInt(3, 2)));
+        this.arr33.setText(String.valueOf(this.display.getGridInt(3, 3)));
+        this.arr34.setText(String.valueOf(this.display.getGridInt(3, 4)));
+        
+        this.arr41.setText(String.valueOf(this.display.getGridInt(4, 1)));
+        this.arr42.setText(String.valueOf(this.display.getGridInt(4, 2)));
+        this.arr43.setText(String.valueOf(this.display.getGridInt(4, 3)));
+        this.arr44.setText(String.valueOf(this.display.getGridInt(4, 4)));
     }
 
     public static void main(String args[]) {

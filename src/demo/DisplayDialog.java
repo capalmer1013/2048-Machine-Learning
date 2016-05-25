@@ -206,7 +206,9 @@ public class DisplayDialog extends javax.swing.JDialog {
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
         // TODO add your handling code here:
+        // System.out.println("calling move");
         display.move("u");
+        // System.out.println("updateGrid");
         updateGrid();
     }//GEN-LAST:event_upButtonActionPerformed
 

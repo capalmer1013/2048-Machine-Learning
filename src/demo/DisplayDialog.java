@@ -11,10 +11,19 @@ public class DisplayDialog extends javax.swing.JDialog {
     public DisplayDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.display.addRandomNumber();
         //Step 2: Call the method in the Groovy class:
-        String text = display.getText().toString();
+        //String text = display.getText().toString();
         //Step 3: Do something with the result:
+
+
+//        for(int i = 0; i < 4; i++){
+//            for(int j = 0; j < 4; j++){
+//                this.grid[i][j].setText(String.valueOf(this.display.getGridInt(i, j)));
+//            }
+//        }
         //displayerField.setText(text);
+        
     }
 
     public int getReturnStatus() {
@@ -248,5 +257,11 @@ public class DisplayDialog extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private int returnStatus = RET_CANCEL;
-
+    
+    private javax.swing.JTextField [] row1 = {arr11, arr12, arr13, arr14};
+    private javax.swing.JTextField [] row2 = {arr21, arr22, arr23, arr24};
+    private javax.swing.JTextField [] row3 = {arr31, arr32, arr33, arr34};
+    private javax.swing.JTextField [] row4 = {arr41, arr42, arr43, arr44};
+    
+    private javax.swing.JTextField [] [] grid = {row1, row2, row3, row4};
 }

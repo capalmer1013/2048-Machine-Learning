@@ -1,33 +1,46 @@
 
 package demo;
 
+import java.util.Random;
+
 public class DisplayDialog extends javax.swing.JDialog {
     public static final int RET_CANCEL = 0;
     public static final int RET_OK = 1;
 
     //Step 1: Initialize the Groovy class:
     DisplayProvider display = new DisplayProvider();
-
+    Random random = new Random();
     public DisplayDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.display.addRandomNumber();
+
         //Step 2: Call the method in the Groovy class:
         //String text = display.getText().toString();
         //Step 3: Do something with the result:
-        arr11.setText("hello");
-        arr12.setText("world");
-        arr21.setText("darkness");
-        arr31.setText("my old");
-        arr41.setText("friend");
+
+        // This is the worst thing ever
+        // putting them in an array and interating wasnt working though
+        // may have fixed it but yolo
+        this.arr11.setText(String.valueOf(this.display.getGridInt(1, 1)));
+        this.arr12.setText(String.valueOf(this.display.getGridInt(1, 2)));
+        this.arr13.setText(String.valueOf(this.display.getGridInt(1, 3)));
+        this.arr14.setText(String.valueOf(this.display.getGridInt(1, 4)));
         
-//        grid[0][0].setText("hello");
-//        grid[0][1].setText("world");
-//        for(int i = 0; i < 4; i++){
-//            for(int j = 0; j < 4; j++){
-//                this.grid[i][j].setText(String.valueOf(this.display.getGridInt(i, j)));
-//            }
-//        }
+        this.arr21.setText(String.valueOf(this.display.getGridInt(2, 1)));
+        this.arr22.setText(String.valueOf(this.display.getGridInt(2, 2)));
+        this.arr23.setText(String.valueOf(this.display.getGridInt(2, 3)));
+        this.arr24.setText(String.valueOf(this.display.getGridInt(2, 4)));
+        
+        this.arr31.setText(String.valueOf(this.display.getGridInt(3, 1)));
+        this.arr32.setText(String.valueOf(this.display.getGridInt(3, 2)));
+        this.arr33.setText(String.valueOf(this.display.getGridInt(3, 3)));
+        this.arr34.setText(String.valueOf(this.display.getGridInt(3, 4)));
+        
+        this.arr41.setText(String.valueOf(this.display.getGridInt(4, 1)));
+        this.arr42.setText(String.valueOf(this.display.getGridInt(4, 2)));
+        this.arr43.setText(String.valueOf(this.display.getGridInt(4, 3)));
+        this.arr44.setText(String.valueOf(this.display.getGridInt(4, 4)));
         //displayerField.setText(text);
         
     }
@@ -267,10 +280,11 @@ public class DisplayDialog extends javax.swing.JDialog {
     // how do I store these so I dont get the evil
     // Null pointer exception
     // TODO fix this shit
-    private javax.swing.JTextField [] row1 = {arr11, arr12, arr13, arr14};
-    private javax.swing.JTextField [] row2 = {arr21, arr22, arr23, arr24};
-    private javax.swing.JTextField [] row3 = {arr31, arr32, arr33, arr34};
-    private javax.swing.JTextField [] row4 = {arr41, arr42, arr43, arr44};
-    
-    private javax.swing.JTextField [] [] grid = {row1, row2, row3, row4};
+//    private javax.swing.JTextField [] row1 = {this.arr11, this.arr12, this.arr13, this.arr14};
+//    private javax.swing.JTextField [] row2 = {this.arr21, this.arr22, this.arr23, this.arr24};
+//    private javax.swing.JTextField [] row3 = {this.arr31, this.arr32, this.arr33, this.arr34};
+//    private javax.swing.JTextField [] row4 = {this.arr41, this.arr42, this.arr43, this.arr44};
+//    private javax.swing.JTextField [] [] grid = {this.row1, this.row2, this.row3, this.row4};
+
+
 }

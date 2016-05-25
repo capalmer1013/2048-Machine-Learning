@@ -8,10 +8,10 @@ class DisplayProvider {
     def text = "Hello from Groovy!"
     
     int getGridInt(int x, int y){
-        return grid[x][y]
+        return grid[x-1][y-1]
     }
     
-    def grid = [[0, 0, 0, 0]
+    def grid = [[0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]];
@@ -23,7 +23,7 @@ class DisplayProvider {
             x = random.nextInt(4)
             y = random.nextInt(4)
         }
-        int num = random.nextInt(1) + 1
+        int num = random.nextInt(2) + 1
         grid[y][x] = num
     }
     // pray forgiveness from the Groovy Gods

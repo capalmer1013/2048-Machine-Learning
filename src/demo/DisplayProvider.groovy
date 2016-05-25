@@ -40,11 +40,11 @@ class DisplayProvider {
     // pray forgiveness from the Groovy Gods
     // I hear they are forgiving, at least with semicolons
     Boolean move(String direction){
-        println "move line1"
+        //println "move line1"
         if(!canMove(direction)){
             return false
         }
-        println "move after condition"
+        //println "move after condition"
         if(direction.equals('l')){
             for(int i = 0; i < 4; i++){
                 for(int j = 0; j < 3; j++){
@@ -78,7 +78,7 @@ class DisplayProvider {
             // collapse empty cells
             // collapse duplicate cells
             // start from the top left corner
-            println "==============================="
+            //println "==============================="
             
             //while(canMove(direction)){
                 for(int j = 0; j < 4; j++){
@@ -124,16 +124,32 @@ class DisplayProvider {
         return true;
     }
     
+    Boolean isSpace(String direction){
+        
+        for(int i = 0; i < 4; i++){
+            if(direction == 'u'){
+                for(int j = 3; j >= 0; j--){
+                if(firstNonZero){
+                    if(grid[j][i] == 0){
+                        //print j + ' '
+                        //println i
+                        space = true
+                    }
+                }
+                }
+            }
+        }
+    }
     // I am either structuring this very poorly
     // or this is just dumb for no reason
     // It really has to be the first one
     Boolean canMove(String direction){
-        println "canMove line 1"
+        //println "canMove line 1"
         Boolean canMove = false;
         // things needed to be moveable
         // must either be a space or a collapsable block pair
         for(int i = 0; i < 4; i++){
-            println "canMove outer loop"
+            //println "canMove outer loop"
             // Left
             if(direction.equals('l')){
                 int previousNonZeroElement = 0
@@ -201,13 +217,13 @@ class DisplayProvider {
                     
                     if(firstNonZero){
                         if(grid[j][i] == 0){
-                            print j + ' '
-                            println i
+                            //print j + ' '
+                            //println i
                             space = true
                         }
                         if(previousNonZeroElement == grid[j][i]){
-                            print j + ' '
-                            println i
+                            //print j + ' '
+                            //println i
                             collapsible = true
                         }
                         if(space){
@@ -219,17 +235,17 @@ class DisplayProvider {
                     if(grid[j][i] != 0){
                         firstNonZero = true
                         previousNonZeroElement = grid[j][i]
-                        println previousNonZeroElement
+                        //println previousNonZeroElement
                     }
                     
                 }
-                println collapsible
-                println spaceCollapsible
+                //println collapsible
+                //println spaceCollapsible
                 if(collapsible || space){
-                    println "--------------------"
-                    printGrid()
-                    println collapsible
-                    println spaceCollapsible
+                    //println "--------------------"
+                    //printGrid()
+                    //println collapsible
+                    //println spaceCollapsible
                     canMove = true
                     return true
                 }

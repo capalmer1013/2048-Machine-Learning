@@ -212,6 +212,9 @@ public class DisplayDialog extends javax.swing.JDialog {
         updateGrid();
     }//GEN-LAST:event_upButtonActionPerformed
 
+    private void downButtonActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);

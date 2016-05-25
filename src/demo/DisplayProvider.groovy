@@ -66,20 +66,83 @@ class DisplayProvider {
             }
             // Right
             else if(direction.equals('r')){
-                for(int j = 0; j < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                Boolean collapsible = false
                 
+                for(int j = 0; j < 4; i++){
+                    if(grid[i][j] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[i][j]
+                    }
+                    if(firstNonZero){
+                        if(grid[i][j] == 0){
+                            space = true
+                        }
+                        if(previousNonZeroElement == grid[i][j]){
+                            collapsible = true
+                        }
+                    }
+                    
+                }
+                if(collapsible || space){
+                    canMove = true
+                    return true
                 }
             }
             // Up
             else if(direction.equals('u')){
-                for(int j = 0; j < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                Boolean collapsible = false
                 
+                for(int j = 3; j >= 0; i++){
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                    }
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                        if(previousNonZeroElement == grid[j][i]){
+                            collapsible = true
+                        }
+                    }
+                    
+                }
+                if(collapsible || space){
+                    canMove = true
+                    return true
                 }
             }
             // Down
             else if(direction.equals('d')){
-                for(int j = 0; j < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                Boolean collapsible = false
                 
+                for(int j = 0; j < 4; i++){
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                    }
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                        if(previousNonZeroElement == grid[j][i]){
+                            collapsible = true
+                        }
+                    }
+                    
+                }
+                if(collapsible || space){
+                    canMove = true
+                    return true
                 }
             }
         }

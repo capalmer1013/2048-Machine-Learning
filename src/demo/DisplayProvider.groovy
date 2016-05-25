@@ -39,21 +39,29 @@ class DisplayProvider {
         for(int i = 0; i < 4; i++){
             // Left
             if(direction.equals('l')){
-                int previousElement = 0
+                int previousNonZeroElement = 0
                 Boolean firstNonZero = false
                 Boolean space = false
+                Boolean collapsible = false
                 
                 for(int j = 3; j >= 0; i--){
                     if(grid[i][j] != 0){
                         firstNonZero = true
+                        previousNonZeroElement = grid[i][j]
                     }
                     if(firstNonZero){
                         if(grid[i][j] == 0){
                             space = true
                         }
-                        
+                        if(previousNonZeroElement == grid[i][j]){
+                            collapsible = true
+                        }
                     }
-                    previousElement = grid[i][j]
+                    
+                }
+                if(collapsible || space){
+                    canMove = true
+                    return true
                 }
             }
             // Right
@@ -75,6 +83,7 @@ class DisplayProvider {
                 }
             }
         }
+        return canMove
     }
 
 }

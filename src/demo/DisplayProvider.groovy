@@ -19,11 +19,11 @@ class DisplayProvider {
     void addRandomNumber(){
         int x = random.nextInt(4)
         int y = random.nextInt(4)
-        while(grid[y][x] == 0){
+        while(grid[y][x] != 0){
             x = random.nextInt(4)
             y = random.nextInt(4)
         }
-        num = random.nextInt(1) + 1
+        int num = random.nextInt(1) + 1
         grid[y][x] = num
     }
     // pray forgiveness from the Groovy Gods

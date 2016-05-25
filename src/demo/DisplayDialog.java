@@ -15,8 +15,14 @@ public class DisplayDialog extends javax.swing.JDialog {
         //Step 2: Call the method in the Groovy class:
         //String text = display.getText().toString();
         //Step 3: Do something with the result:
-
-
+        arr11.setText("hello");
+        arr12.setText("world");
+        arr21.setText("darkness");
+        arr31.setText("my old");
+        arr41.setText("friend");
+        
+//        grid[0][0].setText("hello");
+//        grid[0][1].setText("world");
 //        for(int i = 0; i < 4; i++){
 //            for(int j = 0; j < 4; j++){
 //                this.grid[i][j].setText(String.valueOf(this.display.getGridInt(i, j)));
@@ -258,6 +264,9 @@ public class DisplayDialog extends javax.swing.JDialog {
 
     private int returnStatus = RET_CANCEL;
     
+    // how do I store these so I dont get the evil
+    // Null pointer exception
+    // TODO fix this shit
     private javax.swing.JTextField [] row1 = {arr11, arr12, arr13, arr14};
     private javax.swing.JTextField [] row2 = {arr21, arr22, arr23, arr24};
     private javax.swing.JTextField [] row3 = {arr31, arr32, arr33, arr34};

@@ -265,6 +265,12 @@ public class DisplayDialog extends javax.swing.JDialog {
         this.arr42.setText(String.valueOf(this.display.getGridInt(4, 2)));
         this.arr43.setText(String.valueOf(this.display.getGridInt(4, 3)));
         this.arr44.setText(String.valueOf(this.display.getGridInt(4, 4)));
+        
+//        for(int i = 0; i < 4; i++){
+//            for(int j = 0; j < 4; j++){
+//                this.grid[i][j].setText(String.valueOf(this.display.getGridInt(i,j)));
+//            }
+//        }
     }
 
     public static void main(String args[]) {

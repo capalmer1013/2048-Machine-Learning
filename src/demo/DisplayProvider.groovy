@@ -8,7 +8,12 @@ class DisplayProvider {
     def text = "Hello from Groovy!"
     
     int getGridInt(int x, int y){
-        return grid[x-1][y-1]
+        if(grid[x-1][y-1] == 0){
+            return 0
+        }
+        else{
+            return 2 ** grid[x-1][y-1]
+        }
     }
     
     def grid = [[0, 0, 0, 0],

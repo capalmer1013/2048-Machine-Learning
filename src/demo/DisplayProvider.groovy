@@ -124,8 +124,79 @@ class DisplayProvider {
     }
     
     Boolean isSpace(String direction){
-        
         if(direction == "u"){
+            for(int i = 0; i < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                
+                for(int j = 3; j >= 0; j--){
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                    }
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                        
+                    }
+                }
+                if(space){
+                    
+                    return true
+                }
+            }
+        }
+        else if(direction == "d"){
+            for(int i = 0; i < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                
+                for(int j = 0; j < 4; j++){
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                    }
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                        
+                    }
+                }
+                if(space){
+                    
+                    return true
+                }
+            }
+        }
+        else if(direction == "l"){
+            for(int i = 0; i < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                
+                for(int j = 3; j >= 0; j--){
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                    }
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                        
+                    }
+                }
+                if(space){
+                    
+                    return true
+                }
+            }
+        }
+        else if(direction == "r"){
             for(int i = 0; i < 4; i++){
                 int previousNonZeroElement = 0
                 Boolean firstNonZero = false

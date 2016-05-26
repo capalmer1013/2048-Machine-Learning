@@ -40,11 +40,11 @@ class DisplayProvider {
     // pray forgiveness from the Groovy Gods
     // I hear they are forgiving, at least with semicolons
     Boolean move(String direction){
-        //println "move line1"
+        println "move line1"
         if(!canMove(direction)){
             return false
         }
-        //println "move after condition"
+        println "move after condition"
         if(direction.equals('l')){
             for(int i = 0; i < 4; i++){
                 for(int j = 0; j < 3; j++){
@@ -79,8 +79,7 @@ class DisplayProvider {
             // collapse duplicate cells
             // start from the top left corner
             //println "==============================="
-            
-            //while(canMove(direction)){
+            while(isSpace(direction)){
                 for(int j = 0; j < 4; j++){
                     // println "otter loop (haha otter)"
                     // go down a row each time
@@ -104,7 +103,7 @@ class DisplayProvider {
                         }
                     }
                 }
-            //}
+            }
         }
         else if(direction.equals('d')){
             for(int i = 0; i < 4; i++){
@@ -127,25 +126,27 @@ class DisplayProvider {
     Boolean isSpace(String direction){
         
         if(direction == "u"){
-            int previousNonZeroElement = 0
-            Boolean firstNonZero = false
-            Boolean space = false
-            
-            for(int j = 3; j >= 0; j--){
-                if(firstNonZero){
-                    if(grid[j][i] == 0){
-                        space = true
+            for(int i = 0; i < 4; i++){
+                int previousNonZeroElement = 0
+                Boolean firstNonZero = false
+                Boolean space = false
+                
+                for(int j = 3; j >= 0; j--){
+                    if(firstNonZero){
+                        if(grid[j][i] == 0){
+                            space = true
+                        }
+                    }
+                    if(grid[j][i] != 0){
+                        firstNonZero = true
+                        previousNonZeroElement = grid[j][i]
+                        
                     }
                 }
-                if(grid[j][i] != 0){
-                    firstNonZero = true
-                    previousNonZeroElement = grid[j][i]
+                if(space){
                     
+                    return true
                 }
-            }
-            if(space){
-                canMove = true
-                return true
             }
         }
     }

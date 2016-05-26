@@ -87,10 +87,25 @@ public class DisplayDialog extends javax.swing.JDialog {
         });
 
         downButton.setText("Down");
+        downButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downButtonActionPerformed(evt);
+            }
+        });
 
         rightButton.setText("Right");
+        rightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rightButtonActionPerformed(evt);
+            }
+        });
 
         leftButton.setText("Left");
+        leftButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leftButtonActionPerformed(evt);
+            }
+        });
 
         playButton.setText("Play");
 
@@ -205,16 +220,25 @@ public class DisplayDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
-        // TODO add your handling code here:
-        // System.out.println("calling move");
         display.move("u");
-        // System.out.println("updateGrid");
         updateGrid();
     }//GEN-LAST:event_upButtonActionPerformed
 
-    private void downButtonActionPerformed(java.awt.event.ActionEvent evt){
-        
-    }
+    private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
+        display.move("l");
+        updateGrid();
+    }//GEN-LAST:event_leftButtonActionPerformed
+
+    private void downButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downButtonActionPerformed
+        display.move("d");
+        updateGrid();
+    }//GEN-LAST:event_downButtonActionPerformed
+
+    private void rightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightButtonActionPerformed
+        display.move("r");
+        updateGrid();
+    }//GEN-LAST:event_rightButtonActionPerformed
+
     private void doClose(int retStatus) {
         returnStatus = retStatus;
         setVisible(false);

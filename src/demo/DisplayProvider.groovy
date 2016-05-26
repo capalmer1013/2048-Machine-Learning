@@ -40,11 +40,9 @@ class DisplayProvider {
     // pray forgiveness from the Groovy Gods
     // I hear they are forgiving, at least with semicolons
     Boolean move(String direction){
-        println "move line1"
         if(!canMove(direction)){
             return false
         }
-        println "move after condition"
         if(direction.equals('l')){
             while(isSpace(direction)){
                 for(int i = 0; i < 4; i++){
@@ -53,7 +51,7 @@ class DisplayProvider {
                             grid[i][j] = grid[i][j+1]
                             grid[i][j+1] = 0
                         }
-                        if(grid[i][j] == grid[i][j+1]){
+                        else if(grid[i][j] == grid[i][j+1]){
                             grid[i][j] ++
                             grid[i][j+1] = 0
                         }
@@ -64,12 +62,12 @@ class DisplayProvider {
         else if(direction.equals('r')){
             while(isSpace(direction)){
                 for(int i = 0; i < 4; i++){
-                    for(int j = 2; j >= 0; j--){
+                    for(int j = 3; j > 0; j--){
                         if(grid[i][j] == 0){
                             grid[i][j] = grid[i][j-1]
                             grid[i][j-1] = 0
                         }
-                        if(grid[i][j] == grid[i][j-1]){
+                        else if(grid[i][j] == grid[i][j-1]){
                             grid[i][j] ++
                             grid[i][j-1] = 0
                         }
@@ -100,18 +98,18 @@ class DisplayProvider {
         }
         else if(direction.equals('d')){
             while(isSpace(direction)){
-            for(int i = 0; i < 4; i++){
-                for(int j = 2; j >= 0; j--){
-                    if(grid[j][i] == 0){
-                        grid[j][i] = grid[j][i-1]
-                        grid[j][i-1] = 0
-                    }
-                    if(grid[j][i] == grid[j][i-1]){
-                        grid[j][i] ++
-                        grid[j][i-1] = 0
+                for(int i = 0; i < 4; i++){
+                    for(int j = 3; j > 0; j--){
+                        if(grid[j][i] == 0){
+                            grid[j][i] = grid[j-1][i]
+                            grid[j-1][i] = 0
+                        }
+                        else if(grid[j][i] == grid[j-1][i]){
+                            grid[j][i] ++
+                            grid[j-1][i] = 0
+                        }
                     }
                 }
-            }
             }
         }
         addRandomNumber();
@@ -168,7 +166,7 @@ class DisplayProvider {
                 int previousNonZeroElement = 0
                 Boolean firstNonZero = false
                 Boolean space = false
-                for(int j = 0; j < 4; j++){
+                for(int j = 3; j >= 0; j--){
                     if(firstNonZero){
                         if(grid[i][j] == 0){
                             space = true
@@ -190,7 +188,7 @@ class DisplayProvider {
                 int previousNonZeroElement = 0
                 Boolean firstNonZero = false
                 Boolean space = false
-                for(int j = 3; j >= 0; j--){
+                for(int j = 0; j < 4; j++){
                     if(firstNonZero){
                         if(grid[i][j] == 0){
                             space = true
@@ -207,6 +205,7 @@ class DisplayProvider {
                 }
             }
         }
+        return false
     }
     // I am either structuring this very poorly
     // or this is just dumb for no reason

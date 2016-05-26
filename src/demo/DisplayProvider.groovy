@@ -126,17 +126,26 @@ class DisplayProvider {
     
     Boolean isSpace(String direction){
         
-        for(int i = 0; i < 4; i++){
-            if(direction == 'u'){
-                for(int j = 3; j >= 0; j--){
+        if(direction == "u"){
+            int previousNonZeroElement = 0
+            Boolean firstNonZero = false
+            Boolean space = false
+            
+            for(int j = 3; j >= 0; j--){
                 if(firstNonZero){
                     if(grid[j][i] == 0){
-                        //print j + ' '
-                        //println i
                         space = true
                     }
                 }
+                if(grid[j][i] != 0){
+                    firstNonZero = true
+                    previousNonZeroElement = grid[j][i]
+                    
                 }
+            }
+            if(space){
+                canMove = true
+                return true
             }
         }
     }
